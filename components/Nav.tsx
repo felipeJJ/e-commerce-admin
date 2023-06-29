@@ -4,12 +4,12 @@ import { useRouter } from "next/router";
 export default function Nav() {
 
     const inactiveLink = 'flex gap-2 p-5'
-    const activeLink = inactiveLink+" relative bg-gray-100 text-blue-500 rounded-l-full before:content-[''] before:absolute before:w-12 before:h-12 before:transparent before:left-40 before:top-16 before:rounded-full before:filter-none before:shadow-[32px_-32px_1px_10px_rgba(243,244,246,1)] after:content-[''] after:absolute after:w-12 after:h-12 after:transparent after:left-40 after:-top-12 after:rounded-full after:shadow-[32px_32px_1px_10px_rgba(243,244,246,1)]"
+    const activeLink = inactiveLink+" relative bg-gray-100 text-blue-500 rounded-l-full before:content-[''] before:absolute before:w-12 before:h-12 before:transparent before:right-0 before:top-16 before:rounded-full before:filter-none before:shadow-[32px_-32px_1px_10px_rgba(243,244,246,1)] after:content-[''] after:absolute after:w-12 after:h-12 after:transparent after:right-0 after:-top-12 after:rounded-full after:shadow-[32px_32px_1px_10px_rgba(243,244,246,1)]"
     const router = useRouter()
     const {pathname} =  router
 
     return (
-        <div className=" text-white w-1/5 overflow-hidden">
+        <div className=" text-white w-1/5 block  ">
             <div className="border-l-8 border-solid h-full border-blue-500 p-5 pr-0">
                 <a className="flex gap-1 mb-20 mt-5 ml-5 mr-10 relative">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-6 h-6">

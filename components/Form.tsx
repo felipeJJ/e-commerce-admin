@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState, ChangeEvent } from 'react';
 
 interface FormData {
@@ -13,10 +14,16 @@ export default function From() {
     preco: 0,
   });
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-     
-  }    
+    try {
+      const response = await axios.post('/api/produtos', data);
+      console.log('Produto enviado com sucesso:', response.data);
+    } catch (error) {
+      console.error('Erro ao enviar produto:', error);
+    }
+  }
+      
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { id, value } = e.target;
