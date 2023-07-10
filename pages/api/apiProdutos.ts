@@ -22,5 +22,11 @@ export default async function handlerApi(req: any, res:any){
     })
     res.json(produtoDoc)
   }
+
+  else if (method === 'PUT') {
+    const {nome,descricao,preco,_id} = req.body;
+    await Produto.updateOne({_id}, {nome,descricao,preco});
+    res.json(true);
+  }
 }
 
