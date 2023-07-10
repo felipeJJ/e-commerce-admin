@@ -4,8 +4,14 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+interface ProdutoInfo {
+    nome: string;
+    descricao: string;
+    preco: number;
+  }
+
 export default function EditorDeProduto() {
-    
+    const [produtoInfo, setProdutoInfo] = useState<ProdutoInfo | undefined>();
     const router = useRouter()
     const {id} = router.query
 
@@ -15,14 +21,16 @@ export default function EditorDeProduto() {
         }
 
         axios.get('/api/apiProdutos?id='+id).then(response => {
-            console.log(response.data)
+            setProdutoInfo(response.data)
         })
     }, [id])
 
     return (
         <Layout>
         <h1>Edite o produto!</h1>
-            <Form />
+        {produtoInfo && (
+            <Form {...produtoInfo}/>
+        )}
         </Layout>
     );
 }

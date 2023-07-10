@@ -8,15 +8,15 @@ interface FormData {
   preco: number;
 }
 
-export default function Form() {
+export default function Form({nome:nomeExixtente, descricao: descricaoExixtente, preco: precoExixtente}: FormData) {
 
   const [goToProducts, setgoToProducts] = useState(false)
   const router = useRouter()
 
   const [data, setData] = useState<FormData>({
-    nome: "",
-    descricao: "",
-    preco: 0,
+    nome: nomeExixtente || "",
+    descricao: descricaoExixtente || "",
+    preco: precoExixtente || 0,
   }); 
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
