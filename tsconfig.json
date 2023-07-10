@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "5.0",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -18,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "databese/lib/mongoose.ts", "databese/lib/mongodb.js", "databese/schemas/Produtos.ts", "pages/api/auth/[...nextauth].ts", "pages/api/apiProdutos.ts", "databese/schemas/produto.ts"],
   "exclude": ["node_modules"]
 }
