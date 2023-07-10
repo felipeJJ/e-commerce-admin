@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { redirect } from 'next/dist/server/api-utils';
+import { useRouter } from 'next/router';
 import { useState, ChangeEvent } from 'react';
 
 interface FormData {
@@ -8,8 +8,11 @@ interface FormData {
   preco: number;
 }
 
-export default function From() {
+export default function Form() {
+
   const [goToProducts, setgoToProducts] = useState(false)
+  const router = useRouter()
+
   const [data, setData] = useState<FormData>({
     nome: "",
     descricao: "",
@@ -27,7 +30,7 @@ export default function From() {
   }
 
   if (goToProducts) {
-    return redirect('/produtos': string)
+    router.push('/produtos')
   }
       
 
@@ -40,47 +43,46 @@ export default function From() {
   }
 
   return (
-      <form onSubmit={handleSubmit}>
-          <h1 className="">Crie ou edite produtos!</h1>  
-          <div className=" flex flex-col">
-            <label className='flex flex-col'>
-              <p className='pl-2'> Nome do produto </p> 
-              <input 
-                type="text" 
-                placeholder="Nome do produto" 
-                value={data.nome}
-                onChange={handleChange}
-                id="nome"
-                />
-            </label> 
+        <form onSubmit={handleSubmit}>
+        <div className=" flex flex-col">
+          <label className='flex flex-col'>
+            <p className='pl-2'> Nome do produto </p> 
+            <input 
+              type="text" 
+              placeholder="Nome do produto" 
+              value={data.nome}
+              onChange={handleChange}
+              id="nome"
+              />
+          </label> 
 
-            <label className='flex flex-col'>
-              <p className='pl-2'> Descrição do produto </p>
-              <textarea
-                placeholder="Descrição do produto"
-                value={data.descricao}
-                onChange={handleChange}
-                id="descricao"
-                /> 
-            </label> 
+          <label className='flex flex-col'>
+            <p className='pl-2'> Descrição do produto </p>
+            <textarea
+              placeholder="Descrição do produto"
+              value={data.descricao}
+              onChange={handleChange}
+              id="descricao"
+              /> 
+          </label> 
 
-            <label className='flex flex-col'> 
-              <p className='pl-2'> Preço do produto</p>
-              <input
-                type="number"  
-                placeholder="Preço do produto" 
-                value={data.preco === 0 ? "" : data.preco}
-                onChange={handleChange}
-                id="preco"
-                />
-            </label> 
+          <label className='flex flex-col'> 
+            <p className='pl-2'> Preço do produto</p>
+            <input
+              type="number"  
+              placeholder="Preço do produto" 
+              value={data.preco === 0 ? "" : data.preco}
+              onChange={handleChange}
+              id="preco"
+              />
+          </label> 
 
-            <button 
-              type="submit"
-              className="btn-primary">
-              Salvar
-            </button>  
-          </div> 
-      </form>   
+          <button 
+            type="submit"
+            className="btn-primary">
+            Salvar
+          </button>  
+        </div> 
+    </form>  
   )
 }
