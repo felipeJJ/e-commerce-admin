@@ -3,17 +3,18 @@ import { useRouter } from 'next/router';
 import { useState, ChangeEvent } from 'react';
 
 interface FormData {
+  _id: string;
   nome: string;
   descricao: string;
   preco: number;
 }
 
-export default function Form({nome:nomeExixtente, descricao: descricaoExixtente, preco: precoExixtente}: FormData) {
+export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixtente, preco: precoExixtente}: FormData) {
 
   const [goToProducts, setgoToProducts] = useState(false)
   const router = useRouter()
-
   const [data, setData] = useState<FormData>({
+    _id: '',
     nome: nomeExixtente || "",
     descricao: descricaoExixtente || "",
     preco: precoExixtente || 0,
@@ -21,12 +22,22 @@ export default function Form({nome:nomeExixtente, descricao: descricaoExixtente,
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    try {
-      const response = await axios.post('/api/apiProdutos', data);
-      setgoToProducts(true) 
-    } catch (error) {
-      console.error('Erro ao enviar produto:', error);
-    }
+
+    if(_id){
+      try {
+        await axios.put('/api/apiProdutos', {...data, _id})
+      } catch (error) {
+        console.error('Erro ao enviar produto:', error);
+      }
+    } else{
+        try {
+          const response = await axios.post('/api/apiProdutos', data);
+        } catch (error) {
+          console.error('Erro ao enviar produto:', error);
+        }
+      }
+    
+    setgoToProducts(true) 
   }
 
   if (goToProducts) {
