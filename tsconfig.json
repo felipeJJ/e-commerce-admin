@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "databese/lib/mongoose.ts", "databese/lib/mongodb.js", "databese/schemas/Produtos.ts", "pages/api/auth/[...nextauth].ts", "pages/api/apiProdutos.ts", "databese/schemas/produto.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "databese/lib/mongoose.ts", "databese/lib/mongodb.js", "databese/schemas/Produtos.ts", "pages/api/auth/[...nextauth].ts", "pages/api/apiProdutos.ts", "databese/schemas/produto.ts", "pages/produtos/editar/[...id].tsx"],
   "exclude": ["node_modules"]
 }
