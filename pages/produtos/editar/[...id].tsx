@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 interface ProdutoInfo {
+    _id: string;
     nome: string;
     descricao: string;
     preco: number;
