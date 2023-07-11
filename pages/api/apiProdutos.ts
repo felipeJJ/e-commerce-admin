@@ -28,5 +28,13 @@ export default async function handlerApi(req: any, res:any){
     await Produto.updateOne({_id}, {nome,descricao,preco});
     res.json(true);
   }
+
+  if (method === 'DELETE') {
+    if (req.query?.id) {
+      await Produto.deleteOne({_id:req.query?.id});
+      res.json(true);
+    }
+  }
+
 }
 
