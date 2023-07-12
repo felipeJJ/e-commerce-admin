@@ -1,9 +1,10 @@
 import mongoose, {Schema} from "mongoose";
  
 const ProdutoSchema = new Schema({
-        nome: String,
+        nome: {type: String, required: true},
         descricao: String,
-        preco: Number,
+        preco: {type: Number, required: true},
+        imagens: [{type:String}],
     },
     {
         timestamps: true,
