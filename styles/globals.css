@@ -17,7 +17,11 @@ h1{
 }
 
 label{
-    @apply  text-blue-500
+    @apply  text-blue-500 pb-2
+}
+
+p{
+    @apply text-xl
 }
 
 .btn-primary{
