@@ -29,7 +29,7 @@ export default async function handlerApi(req: any, res:any){
     res.json(true);
   }
 
-  if (method === 'DELETE') {
+  else if (method === 'DELETE') {
     if (req.query?.id) {
       await Produto.deleteOne({_id:req.query?.id});
       res.json(true);
