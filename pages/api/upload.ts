@@ -34,7 +34,7 @@ export default async function handle(req: any, res: any) {
             ACL: 'public-read',
             ContentType: mime.lookup(file.path),
         }))
-        const link = `https://${bucketName}.s3.amazonaws.com/${newFilename}`
+        const link = `https://${bucketName}.s3.sa-east-1.amazonaws.com/${newFilename}`
         links.push(link)
     }
     return res.json({links})
