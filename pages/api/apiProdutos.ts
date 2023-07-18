@@ -2,7 +2,7 @@ import database from "@/databese/lib/mongoose";
 import Produto from "@/databese/schemas/produto";
 
 
-export default async function HandlerApi(req: any, res:any){
+export default async function handlerApi(req: any, res:any){
 
   const {method} = req
   await database.connectMongo()
