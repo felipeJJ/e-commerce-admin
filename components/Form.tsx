@@ -94,10 +94,12 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
 
           <p className='pl-2 mb-2 text-blue-500'>Imagens do produto </p>
           <div className='mb-2 flex flex-wrap gap-2 items-center'>
-          <ReactSortable list={imagens} setList={setImagensOrder} className='flex flex-wrap gap-2'>
+          <ReactSortable list={imagens} 
+            setList={setImagensOrder} 
+            className='flex flex-wrap gap-2'>
             {!!imagens?.length && imagens.map((link: any) => (
               <div key={link} className=" flex flex-wrap ml-2">
-                <img src={link} alt="imagens do produto" className="h-32 rounded-lg"/>
+                <img src={link} alt="imagens do produto" className="h-32 w-52 rounded-lg"/>
               </div>
               ))}
           </ReactSortable>
