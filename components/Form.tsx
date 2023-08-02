@@ -94,20 +94,20 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
 
           <p className='pl-2 mb-2 text-blue-500'>Imagens do produto </p>
           <div className='mb-2 flex flex-wrap gap-2 items-center'>
-          <ReactSortable list={imagens} 
-            setList={setImagensOrder} 
-            className='flex flex-wrap gap-2'>
-            {!!imagens?.length && imagens.map((link: any) => (
-              <div key={link} className=" flex flex-wrap ml-2">
-                <img src={link} alt="imagens do produto" className="h-32 w-52 rounded-lg"/>
-              </div>
-              ))}
-          </ReactSortable>
-              {isUploading && (
-                <div className=' h-32 p-1 bg-gray-200 flex items-center'>
-                  <Spinner/>
+            <ReactSortable list={imagens} 
+              setList={setImagensOrder} 
+              className='flex flex-wrap gap-2'>
+              {!!imagens?.length && imagens.map((link: any) => (
+                <div key={link} className=" flex flex-wrap ml-2">
+                  <img src={link} alt="imagens do produto" className="h-32 w-52 rounded-lg"/>
                 </div>
-              )}
+                ))}
+            </ReactSortable>
+            {isUploading && (
+              <div className=' h-32 p-1 bg-gray-200 flex items-center'>
+                <Spinner/>
+              </div>
+            )}
             <label className=' w-32 h-32 bg-gray-100 cursor-pointer ml-2 flex flex-col text-gray-400 rounded-lg justify-center items-center '> 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15" />

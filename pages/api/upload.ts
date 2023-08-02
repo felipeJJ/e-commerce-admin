@@ -5,8 +5,7 @@ import mime from 'mime-types'
 
 const bucketName = 'jorgim-ecommerce'
 
-
-export default async function handle(req: any, res: any) {
+export default async function Handle(req: any, res: any) {
     const form = new multiparty.Form();
     const {fields,files} = await new Promise<{ fields: any, files: any }>((resolve,reject) => {
     form.parse(req, (err, fields, files) => {
@@ -14,7 +13,6 @@ export default async function handle(req: any, res: any) {
       resolve({fields,files});
     });
   });
-    console.log(files.file.length);
     const client = new S3Client({
     region: 'sa-east-1',
     credentials: {
@@ -38,6 +36,7 @@ export default async function handle(req: any, res: any) {
         links.push(link)
     }
     return res.json({links})
+
 }
 
 export const config = {
