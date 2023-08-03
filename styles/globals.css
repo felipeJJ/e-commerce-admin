@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+#principal::-webkit-scrollbar{
+    display: none
+}
+    
+
 input, textarea {
     @apply border-2 text-lg px-2 rounded-md shadow-lg;
     @apply mb-3 
-
+    
 }
 
 input:focus, textarea:focus {
@@ -29,7 +34,7 @@ p{
 }
 
 table.basic{
-    @apply w-full
+    @apply w-full 
 }
 
 table.basic thead tr td{
@@ -37,7 +42,7 @@ table.basic thead tr td{
 }
 
 table.basic tr td{
-    @apply border border-gray-300 p-2
+    @apply border border-gray-300 p-2 
 }
 
 table.basic a{
