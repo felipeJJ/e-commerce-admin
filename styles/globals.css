@@ -6,19 +6,16 @@
     display: none
 }
     
-
-input, textarea {
-    @apply border-2 text-lg px-2 rounded-md shadow-lg;
-    @apply mb-3 
-    
+input, textarea, select {
+    @apply border-2 text-lg px-2 rounded-md shadow-lg mb-3 text-gray-400
 }
 
-input:focus, textarea:focus {
-    @apply border-blue-500;
+input:focus, textarea:focus, select:focus {
+    @apply border-blue-500
 }
 
 h1{
-    @apply text-blue-500 text-3xl mb-10 ;
+    @apply text-blue-500 text-3xl mb-10 
 }
 
 label{
@@ -30,7 +27,11 @@ p{
 }
 
 .btn-primary{
-    @apply bg-blue-500 text-white rounded-md p-2 px-3 max-w-fit
+    @apply bg-blue-500 text-white rounded-md p-2 px-3 max-w-fit shadow-lg
+}
+
+.btn-secondary{
+    @apply bg-blue-500 text-sm text-white rounded-md p-1.5 px-2 max-w-fit shadow-lg
 }
 
 table.basic{
@@ -38,11 +39,11 @@ table.basic{
 }
 
 table.basic thead tr td{
-    @apply bg-blue-200
+    @apply bg-blue-200 
 }
 
 table.basic tr td{
-    @apply border border-gray-300 p-2 
+    @apply border border-gray-400 p-2 
 }
 
 table.basic a{
@@ -62,5 +63,5 @@ table.basic a{
 }
 
 img{
-    max-height: 100%;
+    max-height: 100%
 }
