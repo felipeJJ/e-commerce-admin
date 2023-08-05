@@ -89,9 +89,8 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
               value={data.nome}
               onChange={handleChange}
               id="nome"
-              />
+            />
           </label> 
-
           <p className='pl-2 mb-2 text-blue-500'>Imagens do produto </p>
           <div className='mb-2 flex flex-wrap gap-2 items-center'>
             <ReactSortable list={imagens} 
@@ -116,7 +115,6 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
               <input type="file" onChange={uploadImagens} className='hidden'/>
             </label>
           </div>
-
           <label className='flex flex-col'>
             <p className='pl-2'> Descrição do produto </p>
             <textarea
@@ -126,7 +124,6 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
               id="descricao"
               /> 
           </label> 
-
           <label className='flex flex-col'> 
             <p className='pl-2'> Preço do produto</p>
             <input
@@ -137,7 +134,6 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
               id="preco"
               />
           </label> 
-
           <button 
             type="submit"
             className="btn-primary">
