@@ -7,11 +7,11 @@
 }
     
 input, textarea, select {
-    @apply border-2 text-lg px-2 rounded-md shadow-lg mb-3 text-gray-400
+    @apply border-2 text-lg px-2 rounded-md shadow-lg mb-3 text-gray-400 h-10
 }
 
 input:focus, textarea:focus, select:focus {
-    @apply border-blue-500
+    @apply border-blue-500 
 }
 
 h1{
@@ -19,7 +19,7 @@ h1{
 }
 
 label{
-    @apply  text-blue-500 pb-2
+    @apply  text-blue-500 pb-2 text-lg
 }
 
 p{
