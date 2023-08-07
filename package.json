@@ -24,6 +24,7 @@
     "next": "13.4.7",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
+    "react-currency-input-field": "^3.6.11",
     "react-dom": "18.2.0",
     "react-sortablejs": "^6.1.4",
     "react-spinners": "^0.13.8",
