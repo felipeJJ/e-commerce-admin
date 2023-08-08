@@ -16,16 +16,16 @@ export default async function HandlerApi(req: any, res:any){
   }
 
   else if (method === 'POST'){
-    const {nome, descricao, preco,imagens} = req.body
+    const {nome, descricao, preco,imagens, categoria} = req.body
     const produtoDoc = await Produto.create({
-      nome,descricao,preco, imagens,
+      nome,descricao,preco, imagens, categoria,
     })
     res.json(produtoDoc)
   }
 
   else if (method === 'PUT') {
-    const {nome,descricao,preco,_id, imagens} = req.body;
-    await Produto.updateOne({_id}, {nome,descricao,preco, imagens})
+    const {nome,descricao,preco,_id, imagens, categoria} = req.body;
+    await Produto.updateOne({_id}, {nome,descricao,preco, imagens, categoria})
     res.json(true);
   }
 

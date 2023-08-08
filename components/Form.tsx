@@ -12,6 +12,7 @@ interface FormData {
   descricao: string;
   preco: number;
   imagens?: any;  
+  categoria: any;
 }
 
 interface Categoria {
@@ -23,7 +24,7 @@ interface Categoria {
   }
 }
 
-export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixtente, preco: precoExixtente, imagens: imagemExixtente}: FormData) {
+export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixtente, preco: precoExixtente, imagens: imagemExixtente, categoria: categoriaExistente}: FormData) {
   const [imagens, setImages] = useState(imagemExixtente || [])
   const [isUploading, setIsUploading] = useState(false)
   const [goToProducts, setGoToProducts] = useState(false)
@@ -34,6 +35,7 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
     nome: nomeExixtente || "",
     descricao: descricaoExixtente || "",
     preco: precoExixtente || 0,
+    categoria: categoriaExistente || "",
   })
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
     router.push('/produtos')
   }
   
-  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement >) {
     const { id, value } = e.target;
 
     if (id === 'preco') {
@@ -109,7 +111,7 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
         <form onSubmit={handleSubmit}>
         <div className=" flex flex-col">
           <div className="flex">
-            <label className='flex flex-col w-2/5 mr-3'>
+            <label className='flex flex-col w-3/5 mr-3'>
               <p className='pl-2'> Nome do produto </p> 
               <input 
                 type="text" 
@@ -120,12 +122,16 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
               />
             </label> 
             <label className='flex flex-col w-2/5'>
-              <p className='pl-2'> Categoria do produto</p>
-                <select>
-                  <option value="">Sem categoria</option>
-                  {categories.length > 0 && categories.map(cat =>(
-                    <option key={cat._id} value={cat._id}>{cat.nomeCategoria}</option>
-                  ))}
+              <p className='pl-2'>Categoria do produto</p>
+                <select 
+                  value={data.categoria} 
+                  id='categoria' 
+                  onChange={handleChange}
+                  >
+                    <option value="">Sem categoria</option>
+                    {categories.length > 0 && categories.map(cat =>(
+                      <option key={cat._id} value={cat._id}>{cat.nomeCategoria}</option>
+                    ))}
                 </select> 
             </label>
           </div>

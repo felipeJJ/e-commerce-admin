@@ -107,13 +107,13 @@ function Categorias({ swal }: CategoriasProps) {
                 <input
                     type="text"
                     placeholder="Nome da categorias de produtos"
-                    className="mb-0 w-1/3 mr-2"
+                    className="mb-0 w-2/4 mr-2"
                     onChange={(e) => setCategoria({ ...categoria, nome: e.target.value })}
                     value={categoria.nome}
                     >
                 </input>
                 <select
-                    className="mb-0 w-1/5 mr-2"
+                    className="mb-0 w-2/4 mr-2"
                     value={categoria.pai}
                     onChange={(e) =>
                         setCategoria((prevCategoria) => ({

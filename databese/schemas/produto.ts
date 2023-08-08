@@ -5,6 +5,7 @@ const ProdutoSchema = new Schema({
         descricao: String,
         preco: {type: Number, required: true},
         imagens: [{type:String}],
+        categoria: {type: mongoose.Types.ObjectId, ref:'Categoria', required: true},
     },
     {
         timestamps: true,
