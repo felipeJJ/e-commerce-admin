@@ -128,7 +128,6 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
                   id='categoria' 
                   onChange={handleChange}
                   >
-                    <option value="">Sem categoria</option>
                     {categories.length > 0 && categories.map(cat =>(
                       <option key={cat._id} value={cat._id}>{cat.nomeCategoria}</option>
                     ))}
