@@ -1,24 +1,18 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Logo from "./Logo";
 
-export default function Nav() {
+export default function Nav({show}: any) {
 
-    const inactiveLink = 'flex gap-2 p-5'
-    const activeLink = inactiveLink+" relative bg-gray-100 text-blue-500 rounded-l-full before:content-[''] before:absolute before:w-12 before:h-12 before:transparent before:right-0 before:top-16 before:rounded-full before:filter-none before:shadow-[32px_-32px_1px_10px_rgba(243,244,246,1)] after:content-[''] after:absolute after:w-12 after:h-12 after:transparent after:right-0 after:-top-12 after:rounded-full after:shadow-[32px_32px_1px_10px_rgba(243,244,246,1)]"
+    const inactiveLink = 'flex gap-2 p-4'
+    const activeLink = inactiveLink+" relative bg-gray-100  text-black rounded-l-full before:content-[''] before:absolute before:w-12 before:h-12 before:transparent before:right-0 before:top-14 before:rounded-full before:shadow-[32px_-32px_1px_12px_rgba(243,244,246,1)] after:content-[''] after:absolute after:w-12 after:h-12 after:transparent after:right-0 after:-top-12 after:rounded-full after:shadow-[32px_32px_1px_10px_rgba(243,244,246,1)]"
     const router = useRouter()
     const {pathname} =  router
 
     return (
-        <div className=" text-white w-1/5 block  ">
-            <div className="h-full border-blue-500 pl-6 p-5 pr-0">
-                <a className="flex justify-center pr-6 gap-1 mb-20 mt-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-                    </svg>
-                    <span>
-                        Painel de Controle
-                    </span>
-                </a>
+        <div className={(show? 'left-0' : '-left-full')+" bg-gray-300 text-white top-0 fixed w-full h-screen md:bg-gray-300 md:static md:w-auto transition-all"}>
+            <div className="h-full pl-6 p-5 pr-0">
+                <Logo/>
                 <nav className="flex flex-col gap-2 ml-1">
                     <Link href="/" className={pathname === '/' ? activeLink : inactiveLink}> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -27,7 +21,7 @@ export default function Nav() {
                         Pedidos
                     </Link>
                     <Link href="/categorias" className={pathname === '/categorias' ? activeLink : inactiveLink}> 
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                         </svg>
                         Categorias

@@ -11,15 +11,15 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-    @apply border-blue-500 
+    @apply border-blue-800 
 }
 
 h1{
-    @apply text-blue-500 text-3xl mb-10 
+    @apply text-blue-800 text-3xl mb-10 
 }
 
 label{
-    @apply  text-blue-500 pb-2 text-lg
+    @apply  text-blue-800 pb-2 text-lg
 }
 
 p{
@@ -27,11 +27,11 @@ p{
 }
 
 .btn-primary{
-    @apply bg-blue-500 text-white rounded-md p-2 px-3 max-w-fit shadow-lg
+    @apply bg-blue-800 text-white rounded-md p-2 px-3 max-w-fit shadow-lg
 }
 
 .btn-secondary{
-    @apply bg-blue-500 text-sm text-white rounded-md p-1.5 px-2 max-w-fit shadow-lg
+    @apply bg-blue-800 text-sm text-white rounded-md p-1.5 px-2 max-w-fit shadow-lg
 }
 
 table.basic{
@@ -47,7 +47,7 @@ table.basic tr td{
 }
 
 table.basic a{
-    @apply bg-blue-500 text-white text-sm py-1 px-2 rounded-md inline-flex gap-1 mr-2
+    @apply bg-blue-800 text-white text-sm py-1 px-2 rounded-md inline-flex gap-1 mr-2
 }
 
 .btn-red, .btn-default{
