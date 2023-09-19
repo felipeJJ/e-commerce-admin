@@ -5,6 +5,8 @@ import { useState, ChangeEvent, Key, useEffect} from 'react';
 import Spinner from './spinner';
 import { ReactSortable } from 'react-sortablejs';
 import CurrencyInput from 'react-currency-input-field';
+import SweetAlert2 from 'react-sweetalert2';
+import Swal from 'sweetalert2';
 
 interface FormData {
   _id: string;
@@ -52,18 +54,28 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
     if (_id) {
         try {
             await axios.put('/api/apiProdutos', { ...data, _id, imagens, preco: numericPreco });
+            setGoToProducts(true)
         } catch (error) {
             console.error('Erro ao enviar produto:', error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            })
         }
     } else {
         try {
             await axios.post('/api/apiProdutos', { ...data, imagens, preco: numericPreco });
+            setGoToProducts(true)
         } catch (error) {
             console.error('Erro ao enviar produto:', error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            })
         }
     }
-
-    setGoToProducts(true)
   }
 
   if (goToProducts) {
@@ -112,7 +124,7 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
         <div className=" flex flex-col">
           <div className="flex">
             <label className='flex flex-col w-3/5 mr-3'>
-              <p className='pl-2'> Nome do produto </p> 
+              <p className='pl-2'> Nome do produto * </p> 
               <input 
                 type="text" 
                 placeholder="Nome do produto" 
@@ -122,12 +134,13 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
               />
             </label> 
             <label className='flex flex-col w-2/5'>
-              <p className='pl-2'>Categoria do produto</p>
+              <p className='pl-2'>Categoria do produto *</p>
                 <select 
                   value={data.categoria} 
                   id='categoria' 
                   onChange={handleChange}
                   >
+                  <option value=""> Categoria </option>  
                     {categories.length > 0 && categories.map(cat =>(
                       <option key={cat._id} value={cat._id}>{cat.nomeCategoria}</option>
                     ))}
@@ -168,7 +181,7 @@ export default function Form({_id, nome:nomeExixtente, descricao: descricaoExixt
               /> 
           </label> 
           <label className='flex flex-col w-2/5'> 
-            <p className='pl-2'> Preço do produto</p>
+            <p className='pl-2'> Preço do produto *</p>
             <CurrencyInput
               intlConfig={{locale: 'pt-br', currency:'BRL'}}
               id="preco"
