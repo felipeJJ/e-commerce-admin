@@ -1,6 +1,8 @@
 # e-commerce-admin
-
 This is a full stack application for an e-commerce operational control panel!
+
+<img width="1440" alt="Captura de Tela 2023-10-03 às 15 08 42" src="https://github.com/felipeJJ/e-commerce-admin/assets/43899843/0ca79455-7cd5-4b76-8a01-aa7501bca1c7">
+
 
 ## About this Project
 
