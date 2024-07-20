@@ -5,7 +5,6 @@ import { useState, ChangeEvent, Key, useEffect} from 'react';
 import Spinner from './spinner';
 import { ReactSortable } from 'react-sortablejs';
 import CurrencyInput from 'react-currency-input-field';
-import SweetAlert2 from 'react-sweetalert2';
 import Swal from 'sweetalert2';
 
 interface FormData {
@@ -14,7 +13,7 @@ interface FormData {
   descricao: string;
   preco: number;
   imagens?: any;  
-  categoria: any;
+  categoria: string;
 }
 
 interface Categoria {

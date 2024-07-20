@@ -9,6 +9,7 @@ interface ProdutoInfo {
     nome: string;
     descricao: string;
     preco: number;
+    categoria: string;
   }
 
 export default function EditorDeProduto() {
@@ -30,7 +31,7 @@ export default function EditorDeProduto() {
         <Layout>
         <h1>Edite o produto!</h1>
         {produtoInfo && (
-            <Form categoria={undefined} {...produtoInfo}/>
+            <Form {...produtoInfo}/>
         )}
         </Layout>
     );
