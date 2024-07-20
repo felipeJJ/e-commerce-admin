@@ -30,7 +30,7 @@ export default function EditorDeProduto() {
         <Layout>
         <h1>Edite o produto!</h1>
         {produtoInfo && (
-            <Form {...produtoInfo}/>
+            <Form categoria={undefined} {...produtoInfo}/>
         )}
         </Layout>
     );
