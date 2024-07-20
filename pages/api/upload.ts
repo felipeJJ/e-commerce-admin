@@ -13,6 +13,7 @@ export default async function Handle(req: any, res: any) {
             resolve({ fields, files })
         })
     })
+
     const client = new S3Client({
         region: 'sa-east-1',
         credentials: {
@@ -20,10 +21,12 @@ export default async function Handle(req: any, res: any) {
             secretAccessKey: process.env.S3_SECRET_ACCESS_KEY as string,
         },
     })
+
     const links = []
     for (const file of files.file) {
         const ext = file.originalFilename.split('.').pop()
         const newFilename = Date.now() + '.' + ext
+
         const contentType = mime.lookup(file.path) || undefined
         await client.send(new PutObjectCommand({
             Bucket: bucketName,
@@ -32,9 +35,11 @@ export default async function Handle(req: any, res: any) {
             ACL: 'public-read',
             ContentType: contentType,
         }))
+
         const link = `https://${bucketName}.s3.sa-east-1.amazonaws.com/${newFilename}`
-        links.push(link);
+        links.push(link)
     }
+
     return res.json({ links })
 }
 
